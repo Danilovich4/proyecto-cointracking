@@ -14,8 +14,11 @@ def filtrar_posts_por_titulo(posts, titulo):
     return [
         post 
         for post in posts 
-        if any(titulo.lower() in post['title'].lower() for titulo in titulo)
+        if any(titulo.lower() in post['title'].lower() for titulo in titulo) #any se usaría si quisiéramos verificar si cualquiera de los valores de un campo (por ejemplo, el título o el cuerpo del post)
             ] #post es lo que devuelve, la resta es una iteracion con condicional
+
+def filtrar_post_por_id (posts, ids_buscar):
+    return [post for post in posts if post['id'] in ids_buscar]
 
 """ 
 #Funcion filtrar contenido
