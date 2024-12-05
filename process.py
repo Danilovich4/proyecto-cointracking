@@ -20,6 +20,16 @@ def filtrar_posts_por_titulo(posts, titulo):
 def filtrar_post_por_id (posts, ids_buscar):
     return [post for post in posts if post['id'] in ids_buscar]
 
+def filtrar_post_por_usuario(posts, usuario_id): #Filtra los posts por userId.
+    return [post for post in posts if post['userId'] == usuario_id]
+
+def contar_palabras_en_titulos (posts, palabra): #Cuenta cuántas veces aparece una palabra en los títulos de los posts.
+    try:
+        return sum(post['title'].lower().count(palabra) for post in posts)
+    except Exception as e: #Agreguemos una depuración para entender mejor el problema:
+        print(f"Error procesando un post: {e}")
+        return 0
+
 """ 
 #Funcion filtrar contenido
 def filtrar_posts_por_contenido(posts, contenido):
